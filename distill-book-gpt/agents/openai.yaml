@@ -1,0 +1,13 @@
+interface:
+  display_name: 拆书成册
+  short_description: 将 EPUB 和 PDF 拆为章节，生成全书总结、卡片思维导图与逐章摘要，合成离线 HTML
+  default_prompt: 请用 $distill-book 处理我提供的电子书，按六步流程生成全书总结、卡片式思维导图、逐章摘要和最终单文件 HTML。
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  products:
+  - chatgpt
+  - codex
+  - api
+  - atlas
+  allow_implicit_invocation: true
