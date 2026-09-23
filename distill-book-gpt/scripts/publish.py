@@ -237,7 +237,7 @@ def build_book(args):
     if skipped:
         body += '<p class="reader-note">仅归档原文的辅助材料：' + E('、'.join(skipped)) + '。</p>'
     body += '<footer><a href="#top">回到顶部 ↑</a></footer></main>'
-    target = book / '06-publication' / (slug + '.html')
+    target = book / (slug + '.html')
     target.write_text(document(title, body, scripted=True), encoding='utf-8')
     inputs += sorted(set(images)) + [ASSETS / 'reader.css', ASSETS / 'reader.js']
     manifest['stages']['publication'] = {'status': 'generated', 'file': str(target.relative_to(book)),
