@@ -33,9 +33,9 @@ description: 将用户提供的 EPUB 或 PDF 电子书拆分为 Markdown 章节�
   03-book-summary/book-summary.md
   04-book-mind/book-mind.html
   05-chapter-summary/ch01-summary.md
-  06-publication/<slug>.html
   99-raw/toc.json
   99-raw/manifest.json
+  <slug>.html                           # 最终单文件 HTML，直接放在项目根目录
 ```
 
 运行 `scripts/book_pipeline.py prepare` 提取原始块和目录候选。EPUB 按 spine 顺序提取，结合 nav/NCX 和标题核实；支持一个文件多章、一章跨文件。PDF 结合书签、印刷目录、正文标题与版面核实，不把页码当章号，不按固定页数假拆章。
@@ -80,7 +80,7 @@ description: 将用户提供的 EPUB 或 PDF 电子书拆分为 Markdown 章节�
 
 ## 6. 合成、检查、交付
 
-运行 `scripts/publish.py book`，严格从已确认的 Markdown 摘要和已生成的思维导图组装 `06-publication/<slug>.html`。保持摘要的内容与顺序，不在排版时重新总结或另写一版。
+运行 `scripts/publish.py book`，严格从已确认的 Markdown 摘要和已生成的思维导图组装项目根目录下的 `<slug>.html`，不另建子目录。保持摘要的内容与顺序，不在排版时重新总结或另写一版。
 
 展示顺序为：书名与简要元数据 → 全书总结 → 卡片列表式思维导图 → 按目录逐章可展开的摘要。提供目录跳转、展开/收起章节和打印阅读。CSS、JS、已引用图片全部内联；不得使用 CDN、远程字体、外部运行时、iframe 或必要的伴随文件。原文不必全部放进最终 HTML。
 

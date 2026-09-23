@@ -21,7 +21,7 @@ import yaml
 
 KINDS = {'chapter', 'preface', 'afterword', 'appendix', 'part', 'toc', 'frontmatter', 'index', 'other'}
 DIRS = ['00-source', '01-meta', '02-chapters/assets', '03-book-summary', '04-book-mind',
-        '05-chapter-summary', '06-publication', '99-raw']
+        '05-chapter-summary', '99-raw']
 
 
 def read_json(path):
